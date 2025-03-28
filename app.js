@@ -1,39 +1,39 @@
 import express from "express";
+import { ler } from "./src/aluno.js";
 
 const app = express();
 const porta = 3000;
 
 /* CONFIGURANDO ROTAS */
+
+// raiz da API
 app.get('/', (req, res) => {
     res.send(`API utilizando Node.js, Express e MySQL`);
-});
-// raiz da API
-app.get('/alunos', (req, res) => {
-    res.send(`Exibindo todos os alunos`);
 });
 
 // Exibindo TODOS os alunos
 app.get('/alunos', (req, res) => {
-    res.send(`Exibindo todos os alunos`);
+    //res.send(`Exibindo todos os alunos`);
+    ler(res);
 });
 
 // Exibindo UM aluno
-app.get('/alunos/1', (req, res) => {
+app.get('/alunos/:id', (req, res) => {
     res.send(`Exibindo dados de UM aluno`);
 });
 
 // INSERINDO/CADASTRANDO/ADICIONANDO um aluno
 app.post('/alunos', (req, res) => {
-    res.send(`Exibindo dados de UM aluno`);
+    res.send(`Inserindo UM aluno`);
 });
 
 // ATUALIZANDO aluno
-app.patch('/alunos/1', (req, res) => {
+app.patch('/alunos/:id', (req, res) => {
     res.send(`Atualizando dados do aluno`);
 });
 
 // EXCLUINDO aluno
-app.delete('/aluno/1', (req, res) => {
+app.delete('/alunos/:id', (req, res) => {
     res.send(`Aluno excluído com sucesso!`);
 });
 
