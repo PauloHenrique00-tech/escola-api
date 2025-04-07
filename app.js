@@ -9,7 +9,7 @@ const porta = process.env.PORT || 3000;
 app.use(express.json());
 
 //Habilitando para dar suporte a dados inseridos a partir de inputs de formulário
-app.use(express.urlencoded({extendend:true}));
+app.use(express.urlencoded({extended:true}));
 app.use (cors());
 
 
